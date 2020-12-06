@@ -1,0 +1,4 @@
+<section *ngIf="itemsList">
+  <app-item *ngFor="let item of itemsList" [item]="item"></app-item>
+  <p *ngIf="itemsList.length===0">No items!</p>
+</section>

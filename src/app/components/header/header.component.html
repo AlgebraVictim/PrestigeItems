@@ -1,0 +1,22 @@
+<nav>
+  <ul>
+    <li *ngIf="!(isLogged$ | async)">
+      <a routerLink="/register">Register</a>
+    </li>
+    <li *ngIf="!(isLogged$ | async)">
+      <a routerLink="/login">Login</a>
+    </li>
+    <li *ngIf="(isLogged$ | async)">
+      <a (click)="logoutHandler()">Logout</a>
+    </li>
+    <li *ngIf="(isLogged$ | async)">
+      <a routerLink="/users">Users</a>
+    </li>
+    <li *ngIf="(isLogged$ | async)">
+      <a routerLink="/items">Items</a>
+    </li>
+    <li *ngIf="(isLogged$ | async)">
+      <a routerLink="/items/create">Create</a>
+    </li>
+  </ul>
+</nav>

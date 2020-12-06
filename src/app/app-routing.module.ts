@@ -1,10 +1,34 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {RegisterComponent} from './components/register/register.component';
+import {LoginComponent} from './components/login/login.component';
+import {UsersComponent} from './components/users/users.component';
+import {ItemsComponent} from './components/items/items.component';
+import {NotFoundComponent} from './components/not-found/not-found.component';
+import {CreateItemComponent} from './components/create-item/create-item.component';
+import {AuthGuardGuard} from './guards/auth-guard.guard';
+import {ItemDetailsComponent} from './components/item-details/item-details.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    canActivateChild: [AuthGuardGuard],
+    children: [
+      {path: 'register', component: RegisterComponent},
+      {path: 'login', component: LoginComponent},
+      // We allow logged users access users' page
+      {path: 'users', canActivateChild: [AuthGuardGuard], children: [{path: '', component: UsersComponent}]},
+      {path: 'items', pathMatch: 'full', component: ItemsComponent},
+      {path: 'item/details/:id', component: ItemDetailsComponent},
+      {path: 'items/create', component: CreateItemComponent},
+      {path: '**', component: NotFoundComponent}
+    ]
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
