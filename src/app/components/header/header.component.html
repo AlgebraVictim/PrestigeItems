@@ -18,5 +18,8 @@
     <li *ngIf="(isLogged$ | async)">
       <a routerLink="/items/create">Create</a>
     </li>
+    <li *ngIf="(isLogged$ | async)">
+      <a routerLink="/cart">Cart</a>
+    </li>
   </ul>
 </nav>

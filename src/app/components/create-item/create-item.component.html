@@ -1,5 +1,9 @@
 <form [formGroup]="form" (ngSubmit)="submitHandler()">
   <div>
+    <label for="name">Product name</label>
+    <input type="text" name="name" id="name" formControlName="name"/>
+  </div>
+  <div>
     <label for="quantity">Quantity</label>
     <input type="number" name="quantity" id="quantity" formControlName="quantity"/>
   </div>

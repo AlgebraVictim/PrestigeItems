@@ -8,6 +8,8 @@ import {NotFoundComponent} from './components/not-found/not-found.component';
 import {CreateItemComponent} from './components/create-item/create-item.component';
 import {AuthGuardGuard} from './guards/auth-guard.guard';
 import {ItemDetailsComponent} from './components/item-details/item-details.component';
+import {EditItemComponent} from './components/edit-item/edit-item.component';
+import {CartComponent} from './components/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -20,7 +22,9 @@ const routes: Routes = [
       {path: 'users', canActivateChild: [AuthGuardGuard], children: [{path: '', component: UsersComponent}]},
       {path: 'items', pathMatch: 'full', component: ItemsComponent},
       {path: 'item/details/:id', component: ItemDetailsComponent},
+      {path: 'items/edit/:id', component: EditItemComponent},
       {path: 'items/create', component: CreateItemComponent},
+      {path: 'cart', component: CartComponent},
       {path: '**', component: NotFoundComponent}
     ]
   }

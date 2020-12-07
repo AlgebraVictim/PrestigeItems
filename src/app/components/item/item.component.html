@@ -1,6 +1,6 @@
 <section>
   <article>
-    <p class="green">Creator: {{item.creator}}</p>
+    <p class="green">Creator: {{item.creator.username}}</p>
     <p>Quantity: {{item.quantity}}</p>
     <p>Coins: {{item.value}}</p>
     <a [routerLink]="['/item/details', item._id]">Go to details</a>

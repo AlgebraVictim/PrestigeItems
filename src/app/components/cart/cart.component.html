@@ -1,0 +1,4 @@
+<section *ngIf="cartItemsList">
+  <app-cart-item *ngFor="let item of cartItemsList" [cartItem]="item"></app-cart-item>
+  <a (click)="handleCheckoutClick()">Checkout</a>
+</section>

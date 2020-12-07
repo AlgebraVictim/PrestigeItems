@@ -1,4 +1,7 @@
 <section *ngIf="item">
-  <p>Creator: {{item.creator}}</p>
+  <p>Creator: {{item.creator.username}}</p>
   <p>Price: {{item.value}}</p>
+  <a [routerLink]="['/items/edit', item._id]">Edit</a>
+  <a (click)="removeItemHandler()">Remove item!</a>
+  <a (click)="addToCartHandler()">Add to cart!</a>
 </section>

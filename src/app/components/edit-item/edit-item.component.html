@@ -1,0 +1,20 @@
+<div *ngIf="item">
+  <form  [formGroup]="form" (ngSubmit)="submitHandler()">
+    <div>
+      <label for="quantity">Quantity</label>
+      <input type="number" name="quantity" id="quantity" formControlName="quantity" [defaultValue]="item.quantity"/>
+    </div>
+    <div>
+      <label for="value">Value</label>
+      <input type="number" name="value" id="value" formControlName="value" value="{{item.value}}"/>
+    </div>
+    <div>
+      <label for="category">Category</label>
+      <select (change)="selectChangeHandler($event)" name="category" id="category">
+        <option selected value="games">Games</option>
+        <option value="items">Items</option>
+      </select>
+    </div>
+    <button>Submit</button>
+  </form>
+</div>

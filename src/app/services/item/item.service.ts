@@ -13,12 +13,20 @@ export class ItemService {
     return this.http.post(environment.baseUrl + `items/create`, data, {withCredentials: true});
   }
 
+  editItem(data: any, id: string): Observable<any> {
+    return this.http.put(environment.baseUrl + `items/edit/${id}`, data, {withCredentials: true});
+  }
+
   loadItem(id: string): Observable<any> {
     return this.http.get(environment.baseUrl + `items/item/${id}`);
   }
 
   loadItems(): Observable<any> {
     return this.http.get(environment.baseUrl + `items/`);
+  }
+
+  removeItem(id: string): Observable<any> {
+    return this.http.delete(environment.baseUrl + `items/remove/${id}`, {withCredentials: true});
   }
 
 }

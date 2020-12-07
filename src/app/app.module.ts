@@ -18,6 +18,10 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CreateItemComponent } from './components/create-item/create-item.component';
 import {AuthGuardGuard} from './guards/auth-guard.guard';
 import { ItemDetailsComponent } from './components/item-details/item-details.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { CartComponent } from './components/cart/cart.component';
+import { EditItemComponent } from './components/edit-item/edit-item.component';
+import {CartService} from './services/cart/cart.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { ItemDetailsComponent } from './components/item-details/item-details.com
     ItemsComponent,
     NotFoundComponent,
     CreateItemComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
+    CartItemComponent,
+    CartComponent,
+    EditItemComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +49,7 @@ import { ItemDetailsComponent } from './components/item-details/item-details.com
     AuthService,
     UserService,
     ItemService,
+    CartService,
     AuthGuardGuard
   ],
   bootstrap: [AppComponent]
