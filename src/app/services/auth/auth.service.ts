@@ -37,8 +37,11 @@ export class AuthService {
   authenticate(): Observable<any> {
     console.log('im inside');
     return this.http.get(environment.baseUrl + `users/profile`, {withCredentials: true}).pipe(
-      tap((user: any) => this.currentUser.next(user)),
+      tap((user: any) => {
+        this.currentUser.next(user);
+      }),
       catchError(() => {
+        console.log('You are not logged in!');
         this.currentUser.next(null);
         return [null];
       })

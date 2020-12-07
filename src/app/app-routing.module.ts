@@ -19,12 +19,12 @@ const routes: Routes = [
       {path: 'register', component: RegisterComponent},
       {path: 'login', component: LoginComponent},
       // We allow logged users access users' page
-      {path: 'users', canActivateChild: [AuthGuardGuard], children: [{path: '', component: UsersComponent}]},
-      {path: 'items', pathMatch: 'full', component: ItemsComponent},
-      {path: 'item/details/:id', component: ItemDetailsComponent},
-      {path: 'items/edit/:id', component: EditItemComponent},
-      {path: 'items/create', component: CreateItemComponent},
-      {path: 'cart', component: CartComponent},
+      {path: 'users', component: UsersComponent, data: {isLogged: true}},
+      {path: 'items', pathMatch: 'full', component: ItemsComponent, data: {isLogged: true}},
+      {path: 'item/details/:id', component: ItemDetailsComponent, data: {isLogged: true}},
+      {path: 'items/edit/:id', component: EditItemComponent, data: {isLogged: true}},
+      {path: 'items/create', component: CreateItemComponent, data: {isLogged: true}},
+      {path: 'cart', component: CartComponent, data: {isLogged: true}},
       {path: '**', component: NotFoundComponent}
     ]
   }
