@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../services/user/user.service';
 import {IUser} from '../../interfaces';
+import {AuthService} from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-users',
@@ -10,8 +11,9 @@ import {IUser} from '../../interfaces';
 export class UsersComponent implements OnInit {
 
   usersList: IUser[];
+  currentUser: any;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private authService: AuthService) {
     this.usersList = [];
   }
 
@@ -19,6 +21,8 @@ export class UsersComponent implements OnInit {
     this.userService.loadAllUsers().subscribe((users) => {
       this.usersList = users;
     });
+    // @ts-ignore
+    this.currentUser = this.authService.currentUser$.source.value;
   }
 
 }

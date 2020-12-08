@@ -1,4 +1,4 @@
-<section *ngIf="usersList">
+<section *ngIf="usersList && currentUser.role==='admin'">
   <article *ngFor="let user of usersList">
     <p class="green">Username: {{user.username}}</p>
     <p>Email: {{user.email}}</p>
@@ -9,3 +9,4 @@
     <p>Password: {{user.password}}</p>
   </article>
 </section>
+<app-not-found *ngIf="currentUser.role!=='admin'"></app-not-found>

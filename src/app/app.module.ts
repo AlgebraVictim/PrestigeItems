@@ -22,6 +22,12 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { CartComponent } from './components/cart/cart.component';
 import { EditItemComponent } from './components/edit-item/edit-item.component';
 import {CartService} from './services/cart/cart.service';
+import { HomeComponent } from './components/home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { PurchasesComponent } from './components/purchases/purchases.component';
+import {CommonModule} from '@angular/common';
+import {PurchasesService} from './services/purchases/purchases.service';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -37,20 +43,26 @@ import {CartService} from './services/cart/cart.service';
     ItemDetailsComponent,
     CartItemComponent,
     CartComponent,
-    EditItemComponent
+    EditItemComponent,
+    HomeComponent,
+    FooterComponent,
+    PurchasesComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [
     AuthService,
     UserService,
     ItemService,
     CartService,
-    AuthGuardGuard
+    AuthGuardGuard,
+    PurchasesService
   ],
   bootstrap: [AppComponent]
 })

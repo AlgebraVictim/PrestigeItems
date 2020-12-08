@@ -1,7 +1,22 @@
-<section *ngIf="item">
-  <p>Creator: {{item.creator.username}}</p>
-  <p>Price: {{item.value}}</p>
-  <a [routerLink]="['/items/edit', item._id]">Edit</a>
-  <a (click)="removeItemHandler()">Remove item!</a>
-  <a (click)="addToCartHandler()">Add to cart!</a>
+<section class="main-wrapper" *ngIf="item">
+  <article class="image-wrapper">
+    <img src="https://wallpaperaccess.com/full/957573.jpg"/>
+  </article>
+  <article class="info-wrapper">
+    <section class="description">
+      <p>Title: {{item.name}}</p>
+      <p>Item rating: {{item.stars}}</p>
+      <p>Sold by: {{item.creator.username}}</p>
+      <p>Quantity left: {{item.quantity}}</p>
+      <p>Buy for: {{item.value}} coins</p>
+      <p>Watched by: {{watching}} users</p>
+    </section>
+    <section class="actions">
+      <a *ngIf="currentUser._id === item.creator._id" [routerLink]="['/items/edit', item._id]">Edit</a>
+      <a *ngIf="currentUser._id === item.creator._id" (click)="removeItemHandler()">Remove item!</a>
+      <a *ngIf="currentUser._id !== item.creator._id" (click)="addToCartHandler()">Add to cart!</a>
+      <a *ngIf="currentUser._id !== item.creator._id && !(currentUser.starred.includes(item._id))"
+         (click)="starHandler()">Give it a star!</a>
+    </section>
+  </article>
 </section>

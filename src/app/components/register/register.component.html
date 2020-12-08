@@ -1,19 +1,31 @@
-<form [formGroup]="form" (ngSubmit)="submitHandler()">
-  <div>
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username" formControlName="username"/>
+<div class="background-wrapper">
+  <div class="wrapper">
+    <h1>Registration</h1>
+    <form [formGroup]="form" (ngSubmit)="submitHandler()">
+      <div class="field">
+        <label for="username"></label>
+        <input type="text" name="username" id="username" formControlName="username" placeholder="Username..."/>
+      </div>
+      <div class="field">
+        <label for="email"></label>
+        <input type="text" name="email" id="email" formControlName="email" placeholder="Example@domain.com"/>
+      </div>
+      <div class="field">
+        <label for="password"></label>
+        <input type="password" name="password" id="password" formControlName="password" placeholder="••••••••"/>
+      </div>
+      <div class="field">
+        <label for="rePassword"></label>
+        <input type="password" name="rePassword" id="rePassword" formControlName="rePassword" placeholder="••••••••"/>
+      </div>
+      <div class="login">
+        <a routerLink="/login">Already a member, sign in here.</a>
+      </div>
+      <div class="submit">
+        <button>Register</button>
+      </div>
+    </form>
+    <app-loader [isLoading]="isLoading"></app-loader>
   </div>
-  <div>
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email" formControlName="email"/>
-  </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" formControlName="password"/>
-  </div>
-  <div>
-    <label for="rePassword">Repeat Password</label>
-    <input type="password" name="rePassword" id="rePassword" formControlName="rePassword"/>
-  </div>
-  <button>Create Account</button>
-</form>
+</div>
+

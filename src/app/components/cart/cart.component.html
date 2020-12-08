@@ -1,4 +1,19 @@
-<section *ngIf="cartItemsList">
-  <app-cart-item *ngFor="let item of cartItemsList" [cartItem]="item"></app-cart-item>
-  <a (click)="handleCheckoutClick()">Checkout</a>
-</section>
+<div *ngIf="cartItemsList.length>0">
+  <table>
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Value</th>
+      <th>Added by</th>
+      <th>Discount</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <app-cart-item *ngFor="let item of cartItemsList" [cartItem]="item"></app-cart-item>
+    </tbody>
+  </table>
+  <a class="checkout" (click)="handleCheckoutClick()">Checkout</a>
+</div>
+<app-not-found *ngIf="cartItemsList.length===0"></app-not-found>

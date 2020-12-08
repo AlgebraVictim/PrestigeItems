@@ -29,4 +29,7 @@ export class ItemService {
     return this.http.delete(environment.baseUrl + `items/remove/${id}`, {withCredentials: true});
   }
 
+  star(id: string): Observable<any> {
+    return this.http.put(environment.baseUrl + `items/star/${id}`, {}, {withCredentials: true});
+  }
 }

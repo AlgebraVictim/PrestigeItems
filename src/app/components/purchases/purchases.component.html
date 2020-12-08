@@ -1,0 +1,17 @@
+<table *ngIf="purchasesList.length>0">
+  <tr>
+    <th>Date</th>
+    <th>Creator</th>
+    <th>Item title</th>
+    <th>Item value</th>
+    <th>Activation key</th>
+  </tr>
+  <tr *ngFor="let purchase of purchasesList">
+    <td>{{purchase.date}}</td>
+    <td>{{purchase.creator.username}}</td>
+    <td>{{purchase.item.name}}</td>
+    <td>{{purchase.item.value}} coins</td>
+    <td>{{(purchase.activationKey).toUpperCase()}}</td>
+  </tr>
+</table>
+<app-not-found *ngIf="purchasesList.length===0"></app-not-found>

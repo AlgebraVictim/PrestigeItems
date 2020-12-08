@@ -10,6 +10,8 @@ import {AuthGuardGuard} from './guards/auth-guard.guard';
 import {ItemDetailsComponent} from './components/item-details/item-details.component';
 import {EditItemComponent} from './components/edit-item/edit-item.component';
 import {CartComponent} from './components/cart/cart.component';
+import {PurchasesComponent} from './components/purchases/purchases.component';
+import {HomeComponent} from './components/home/home.component';
 
 const routes: Routes = [
   {
@@ -25,6 +27,8 @@ const routes: Routes = [
       {path: 'items/edit/:id', component: EditItemComponent, data: {isLogged: true}},
       {path: 'items/create', component: CreateItemComponent, data: {isLogged: true}},
       {path: 'cart', component: CartComponent, data: {isLogged: true}},
+      {path: 'purchases', component: PurchasesComponent, data: {isLogged: true}},
+      {path: '', component: HomeComponent, pathMatch: 'full'},
       {path: '**', component: NotFoundComponent}
     ]
   }

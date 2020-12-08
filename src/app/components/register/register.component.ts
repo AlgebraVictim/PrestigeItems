@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   form: FormGroup;
+  isLoading = false;
 
   constructor(
     private fb: FormBuilder,
@@ -30,12 +31,15 @@ export class RegisterComponent implements OnInit {
 
   submitHandler(): void {
     const data = this.form.value;
+    this.isLoading = true;
 
     this.authService.register(data).subscribe({
       next: () => {
+        this.isLoading = false;
         this.router.navigate(['/']);
       },
       error: (err) => {
+        this.isLoading = false;
         console.error(err);
       }
     });

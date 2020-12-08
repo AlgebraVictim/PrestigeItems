@@ -28,7 +28,8 @@ export class EditItemComponent implements OnInit {
     });
     this.form = this.fb.group({
       value: ['', [Validators.required, Validators.min(1)]],
-      quantity: ['', [Validators.required, Validators.min(1)]]
+      quantity: ['', [Validators.required, Validators.min(1)]],
+      name: ['', [Validators.required]]
     });
   }
 

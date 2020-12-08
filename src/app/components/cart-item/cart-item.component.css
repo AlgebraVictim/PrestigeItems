@@ -1,0 +1,15 @@
+td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 15px;
+  width: 260px;
+}
+
+tr {
+  width: 100%;
+}
+
+a {
+  cursor: pointer;
+  color: red;
+}

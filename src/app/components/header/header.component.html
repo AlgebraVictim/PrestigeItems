@@ -1,25 +1,35 @@
 <nav>
-  <ul>
-    <li *ngIf="!(isLogged$ | async)">
-      <a routerLink="/register">Register</a>
-    </li>
-    <li *ngIf="!(isLogged$ | async)">
-      <a routerLink="/login">Login</a>
-    </li>
-    <li *ngIf="(isLogged$ | async)">
-      <a (click)="logoutHandler()">Logout</a>
-    </li>
-    <li *ngIf="(isLogged$ | async)">
-      <a routerLink="/users">Users</a>
-    </li>
-    <li *ngIf="(isLogged$ | async)">
-      <a routerLink="/items">Items</a>
-    </li>
-    <li *ngIf="(isLogged$ | async)">
-      <a routerLink="/items/create">Create</a>
-    </li>
-    <li *ngIf="(isLogged$ | async)">
-      <a routerLink="/cart">Cart</a>
-    </li>
-  </ul>
+  <div class="wrapper">
+<!--    Left floated ul-->
+    <ul class="left">
+      <li *ngIf="(isLogged$ | async)">
+        <a routerLink="/users">Users</a>
+      </li>
+      <li *ngIf="(isLogged$ | async)">
+        <a routerLink="/items">Items</a>
+      </li>
+      <li *ngIf="(isLogged$ | async)">
+        <a routerLink="/items/create">Create</a>
+      </li>
+      <li *ngIf="(isLogged$ | async)">
+        <a routerLink="/cart">Cart</a>
+      </li>
+      <li *ngIf="(isLogged$ | async)">
+        <a routerLink="/purchases">Purchases</a>
+      </li>
+    </ul>
+<!--    Right floated ul-->
+    <ul class="right">
+      <li *ngIf="!(isLogged$ | async)">
+        <a routerLink="/register">Register</a>
+      </li>
+      <li *ngIf="!(isLogged$ | async)">
+        <a routerLink="/login">Login</a>
+      </li>
+      <li *ngIf="(isLogged$ | async)">Hello, how you doin'</li>
+      <li *ngIf="(isLogged$ | async)">
+        <a (click)="logoutHandler()">Logout</a>
+      </li>
+    </ul>
+  </div>
 </nav>

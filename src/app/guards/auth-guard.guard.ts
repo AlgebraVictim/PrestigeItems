@@ -17,10 +17,10 @@ export class AuthGuardGuard implements CanActivateChild {
     return this.authService.currentUser$.pipe(
       switchMap(user => user === undefined ? this.authService.authenticate() : [user]),
       map((user) => {
+        // Remove the line below
         console.log(user);
         const isLoggedFromData = childRoute.data.isLogged;
         return typeof isLoggedFromData !== 'boolean' || isLoggedFromData === !!user;
-        // return isLoggedFromData === !!user;
       }),
       tap((canContinue) => {
         if (canContinue) {

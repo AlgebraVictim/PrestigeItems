@@ -1,4 +1,9 @@
-<section *ngIf="itemsList">
+<div class="scene" *ngIf="itemsList">
   <app-item *ngFor="let item of itemsList" [item]="item"></app-item>
   <p *ngIf="itemsList.length===0">No items!</p>
-</section>
+</div>
+
+<!--<section *ngIf="itemsList">-->
+<!--  <app-item *ngFor="let item of itemsList" [item]="item"></app-item>-->
+<!--  <p *ngIf="itemsList.length===0">No items!</p>-->
+<!--</section>-->

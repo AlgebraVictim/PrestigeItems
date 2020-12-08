@@ -1,4 +1,62 @@
-.green {
-  display: inline;
-  background-color: greenyellow;
+.card {
+  position: relative;
+  width: 240px;
+  height: 300px;
+  color: white;
+  cursor: pointer;
+  transition: 1s ease-in-out;
+  transform-style: preserve-3d;
+  margin-bottom: 40px;
+  flex: 1 0 30%; /* <-- adjusting for margin */
+  box-shadow: 0 9px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card:hover {
+  transform: rotateY(0.5turn);
+}
+.card .card__face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: 1s ease-in-out;
+  -webkit-box-reflect: below 0 linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
+}
+.card .card__face img {
+  width: 240px;
+  height: 300px;
+  object-fit: cover;
+}
+.card .card__face--back {
+  transform: rotateY(0.5turn);
+}
+.text-block {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%);
+  background-color: transparent;
+  text-shadow: 2px 2px 4px gray;
+  font-size: 50px;
+  width: 100%;
+  text-align: center;
+}
+.text-block-sold {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%);
+  background-color: transparent;
+  color: yellow;
+  text-shadow: 2px 2px 4px darkred;
+  font-size: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+.blockMe {
+  /*cursor: not-allowed;*/
+  pointer-events: none;
+  cursor: pointer;
 }

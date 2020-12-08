@@ -1,9 +1,18 @@
-<section>
-  <article>
-    <p>Discount: {{cartItem.discount}}</p>
-    <p>Value: {{cartItem.value}}</p>
-    <p>Item name: {{cartItem.name}}</p>
-    <p>Added by: {{cartItem.creator.username}}</p>
-    <a (click)="handleDeleteClick()">Remove item from cart</a>
-  </article>
-</section>
+<!--<section>-->
+<!--  <article>-->
+<!--    <p>Discount: {{cartItem.discount}}</p>-->
+<!--    <p>Value: {{cartItem.value}}</p>-->
+<!--    <p>Item name: {{cartItem.name}}</p>-->
+<!--    <p>Added by: {{cartItem.creator.username}}</p>-->
+<!--    <a (click)="handleDeleteClick()">Remove item from cart</a>-->
+<!--  </article>-->
+<!--</section>-->
+
+<tr>
+  <td>{{cartItem.date}}</td>
+  <td>{{cartItem.name}}</td>
+  <td>{{cartItem.value}}</td>
+  <td>{{cartItem.creator.username}}</td>
+  <td> {{cartItem.discount}}</td>
+  <td><a (click)="handleDeleteClick()">Remove item from cart</a></td>
+</tr>

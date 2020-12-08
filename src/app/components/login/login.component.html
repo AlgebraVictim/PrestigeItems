@@ -1,11 +1,25 @@
-<form [formGroup]="form" (ngSubmit)="submitHandler()">
-  <div>
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email" formControlName="email"/>
+<div class="background-wrapper">
+  <div class="wrapper">
+    <h1>Login</h1>
+    <form [formGroup]="form" (ngSubmit)="submitHandler()">
+      <div class="field">
+        <label for="email"></label>
+        <input type="text" name="email" id="email" formControlName="email" placeholder="Example@domain.com"/>
+      </div>
+      <div class="field">
+        <label for="password"></label>
+        <input type="password" name="password" id="password" formControlName="password" placeholder="••••••••"/>
+      </div>
+      <div class="register">
+        <a routerLink="/register">Not a member, sign up here.</a>
+      </div>
+      <div class="remember">
+        <input type="checkbox" value="rememberMe">
+        <label for="">Remember me?</label>
+      </div>
+      <div class="submit">
+        <button>Sign In</button>
+      </div>
+    </form>
   </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" formControlName="password"/>
-  </div>
-  <button>Sign In</button>
-</form>
+</div>

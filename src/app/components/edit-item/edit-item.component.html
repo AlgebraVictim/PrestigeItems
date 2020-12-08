@@ -1,20 +1,30 @@
-<div *ngIf="item">
-  <form  [formGroup]="form" (ngSubmit)="submitHandler()">
-    <div>
-      <label for="quantity">Quantity</label>
-      <input type="number" name="quantity" id="quantity" formControlName="quantity" [defaultValue]="item.quantity"/>
-    </div>
-    <div>
-      <label for="value">Value</label>
-      <input type="number" name="value" id="value" formControlName="value" value="{{item.value}}"/>
-    </div>
-    <div>
-      <label for="category">Category</label>
-      <select (change)="selectChangeHandler($event)" name="category" id="category">
-        <option selected value="games">Games</option>
-        <option value="items">Items</option>
-      </select>
-    </div>
-    <button>Submit</button>
-  </form>
+<div class="background-wrapper">
+  <div *ngIf="item" class="wrapper">
+    <h1>Edit Item/Game</h1>
+    <form [formGroup]="form" (ngSubmit)="submitHandler()">
+      <div class="field">
+        <label for="name"></label>
+        <input type="text" name="name" id="name" formControlName="name" placeholder="Product title"/>
+      </div>
+      <div class="field">
+        <label for="quantity"></label>
+        <input type="number" name="quantity" id="quantity" formControlName="quantity" placeholder="Quantity"/>
+      </div>
+      <div class="field">
+        <label for="value"></label>
+        <input type="number" name="value" id="value" formControlName="value" placeholder="Coins"/>
+      </div>
+      <div class="field">
+        <p class="category-save">Select category!</p>
+        <label for="category"></label>
+        <select class="select-css" (change)="selectChangeHandler($event)" name="category" id="category">
+          <option selected value="games">Games</option>
+          <option value="items">Items</option>
+        </select>
+      </div>
+      <div class="submit">
+        <button>Submit</button>
+      </div>
+    </form>
+  </div>
 </div>

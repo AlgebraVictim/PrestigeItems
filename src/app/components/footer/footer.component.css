@@ -1,0 +1,40 @@
+@import 'https://use.fontawesome.com/releases/v5.10.2/css/all.css';
+
+footer {
+  width: 100%;
+  height: 151px;
+}
+
+.wrapper {
+  height: 60%;
+  background-color: #C38D9E;
+}
+
+a {
+  color: wheat;
+}
+
+.icons {
+  height: 100%;
+  font-size: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 20%;
+  margin: 0 auto;
+}
+
+.copyright {
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #41B3A3;
+  color: wheat;
+}
+
+.logo {
+  margin-left: 5px;
+  text-decoration: none;
+  font-size: 17px;
+}
