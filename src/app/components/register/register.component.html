@@ -2,27 +2,45 @@
   <div class="wrapper">
     <h1>Registration</h1>
     <form [formGroup]="form" (ngSubmit)="submitHandler()">
+      <!--      Username fields-->
       <div class="field">
         <label for="username"></label>
         <input type="text" name="username" id="username" formControlName="username" placeholder="Username..."/>
+        <p class="error-p" *ngIf="form.get('username')?.touched && form.get('username')?.errors?.minlength">Username
+          must be
+          at least 6
+          characters!</p>
       </div>
+      <!--      Email fields-->
       <div class="field">
         <label for="email"></label>
         <input type="text" name="email" id="email" formControlName="email" placeholder="Example@domain.com"/>
+        <p class="error-p" *ngIf="form.get('email')?.touched && form.get('email')?.errors?.emailValidator">Email
+          is not valid</p>
       </div>
+      <!--      Password fields-->
       <div class="field">
         <label for="password"></label>
         <input type="password" name="password" id="password" formControlName="password" placeholder="••••••••"/>
+        <p class="error-p" *ngIf="form.get('password')?.touched && form.get('password')?.errors?.minlength">
+          Password
+          must be at least 6 characters!</p>
       </div>
+      <!--      Repeat password fields-->
       <div class="field">
         <label for="rePassword"></label>
         <input type="password" name="rePassword" id="rePassword" formControlName="rePassword" placeholder="••••••••"/>
+        <p class="error-p"
+           *ngIf="form.get('rePassword')?.touched && form.get('rePassword')?.errors?.rePasswordValidator">
+          Repeat password and password must match!</p>
       </div>
+      <!--      Link to login form-->
       <div class="login">
         <a routerLink="/login">Already a member, sign in here.</a>
       </div>
+      <!--      Register button (submit)-->
       <div class="submit">
-        <button>Register</button>
+        <button [class.err-btn]="form.invalid" [disabled]="form.invalid">Register</button>
       </div>
     </form>
     <app-loader [isLoading]="isLoading"></app-loader>

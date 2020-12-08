@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../services/auth/auth.service';
 import {Router} from '@angular/router';
+import {emailValidator} from '../../validators/validator';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.minLength(6)]],
+      email: ['', [Validators.required, emailValidator]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }

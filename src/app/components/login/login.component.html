@@ -2,23 +2,36 @@
   <div class="wrapper">
     <h1>Login</h1>
     <form [formGroup]="form" (ngSubmit)="submitHandler()">
+      <!--      Email fields-->
       <div class="field">
         <label for="email"></label>
-        <input type="text" name="email" id="email" formControlName="email" placeholder="Example@domain.com"/>
+        <input [class.error-class]="form.get('email')?.touched && !!form.get('email')?.errors" type="text" name="email"
+               id="email" formControlName="email" placeholder="Example@domain.com"/>
+        <p class="error-p" *ngIf="form.get('email')?.touched && form.get('email')?.errors?.emailValidator">Email must be
+          at least 6
+          characters!</p>
       </div>
+      <!--      Password fields-->
       <div class="field">
         <label for="password"></label>
-        <input type="password" name="password" id="password" formControlName="password" placeholder="••••••••"/>
+        <input [class.error-class]="form.get('password')?.touched && !!form.get('password')?.errors" type="password"
+               name="password" id="password" formControlName="password" placeholder="••••••••"/>
+        <p class="error-p" *ngIf="form.get('password')?.touched && form.get('password')?.errors?.minlength">Password
+          must be at least 6
+          characters!</p>
       </div>
+      <!--      Link to register-->
       <div class="register">
         <a routerLink="/register">Not a member, sign up here.</a>
       </div>
+      <!--      Remember me button-->
       <div class="remember">
         <input type="checkbox" value="rememberMe">
         <label for="">Remember me?</label>
       </div>
+      <!--      Login button (submit)-->
       <div class="submit">
-        <button>Sign In</button>
+        <button [class.err-btn]="form.invalid" [disabled]="form.invalid">Sign In</button>
       </div>
     </form>
   </div>

@@ -84,3 +84,16 @@ button {
   font-size: 20px;
   text-transform: uppercase;
 }
+
+.error-class {
+  border: 2px solid red;
+}
+
+.error-p {
+  color: red;
+  text-align: left;
+}
+
+.err-btn {
+  border: 2px solid red;
+}

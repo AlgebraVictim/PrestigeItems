@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../services/auth/auth.service';
 import {Router} from '@angular/router';
+import {emailValidator, rePasswordValidatorFactory} from '../../validators/validator';
 
 @Component({
   selector: 'app-register',
@@ -18,11 +19,12 @@ export class RegisterComponent implements OnInit {
     private authService: AuthService,
     private router: Router
   ) {
+    const passwordControl = this.fb.control('', [Validators.required, Validators.minLength(6)]);
     this.form = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(6)]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      rePassword: ['', [Validators.required, Validators.minLength(6)]]
+      email: ['', [Validators.required, emailValidator]],
+      password: passwordControl,
+      rePassword: ['', [Validators.required, Validators.minLength(6), rePasswordValidatorFactory(passwordControl)]]
     });
   }
 
