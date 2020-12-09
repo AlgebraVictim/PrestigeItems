@@ -1,4 +1,4 @@
-# OdinSmurfs - smurf accounts React Ecommerce Application
+# PrestigeItems - game items and games eCommerce Application
 
 PrestigeItems is an eCommerce application built on AngularJS and NodeJS as a project for the SoftUni Angular Course. It's purpose is to provide different types of items/games. The application also provides admin functionality where everything can be easily maganged.
 
