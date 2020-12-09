@@ -10,7 +10,6 @@ The application has three levels of accessibility: guest user, administrator and
 | /  | Home Page  | All users |
 | /items  | Shop Page  | Registered only |
 | /users  | All registered users page  | Administrator |
-| /accounts/:accountType  | Page with accounts of current type  | All users |
 | /items/details/:id  | Page with details of the selected item  | Registered only |
 | /cart  | Current user's cart  | Registered only |
 | /purchases  | Current user's orders  | Registered only |
@@ -37,13 +36,7 @@ route: '/items'
 
 A page with two type of items: items and games.
 
-**Single type of accounts page**
-
-route: '/accounts/:accountType'
-
-A page displaying the current type of accounts, you can filter the accounts by region.
-
-**Single account details page**
+**Single item/game details page**
 
 route: '/item/details/:id'
 
@@ -61,13 +54,13 @@ route: '/purchases'
 
 A page displaying all orders, made by the current user. If all went well, you will hate the item's activation key.
 
-**Create account (smurf) page**
+**Create item/game page**
 
 route: '/item/create'
 
 A page where only the logged in user can create items, while choosing between two types.
 
-**Edit account (smurf) page**
+**Edit item/game page**
 
 route: '/item/edit/:id'
 
@@ -77,7 +70,7 @@ A page where only the creator of the item can modify the current selected item.
 
 route: '/users'
 
-A page displaying all registered users, information about.
+A page displaying all registered users, information about them.
 
 **Login page**
 
