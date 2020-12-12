@@ -1,6 +1,6 @@
 # PrestigeItems - game items and games eCommerce Application
 
-PrestigeItems is an eCommerce application built on AngularJS and NodeJS as a project for the SoftUni Angular Course. It's purpose is to provide different types of items/games. The application also provides admin functionality where everything can be easily maganged.
+PrestigeItems is an eCommerce application built on AngularJS and NodeJS as a project for the SoftUni Angular Course. It's purpose is to provide different types of items/games. The application also provides admin functionality where everything can be easily maganged. I wrote every line of css in this code, no bootstrap used, etc...
 
 The application has three levels of accessibility: guest user, administrator and registered user
 
@@ -18,9 +18,9 @@ The application has three levels of accessibility: guest user, administrator and
 | /login  | Login page  | Guests only |
 | /register  | Register page  | Guests only |
     
-The already logged in user is authenticated to not only able to see the items in the items section, he is able to add unlimited quantity of items in his Cart, after successful checkout he will receive the activation key of the item. If you add an item in your Cart by mistake, you can remove it.
+The already logged in user is authenticated to not only able to see the items in the items section, he is able to add unlimited quantity of items in his Cart, after successful checkout he will receive the activation key of the item. If you add an item in your Cart by mistake, you can remove it. Perfect data validation implemented.
 
-Administrator has full accessibility, he can add items, edit them if something changes such as value etc... He can see a page with all registered users.
+Administrator has full accessibility, he can add items, edit them if something changes such as value etc... He can see a page with all registered users. He can also ban and unban users.
 
 ## Usage
 
@@ -70,7 +70,7 @@ A page where only the creator of the item can modify the current selected item.
 
 route: '/users'
 
-A page displaying all registered users, information about them.
+A page displaying all registered users, information about them. He can ban/unban users.
 
 **Login page**
 
