@@ -20,7 +20,6 @@ const routes: Routes = [
     children: [
       {path: 'register', component: RegisterComponent},
       {path: 'login', component: LoginComponent},
-      // We allow logged users access users' page
       {path: 'users', component: UsersComponent, data: {isLogged: true}},
       {path: 'items', pathMatch: 'full', component: ItemsComponent, data: {isLogged: true}},
       {path: 'item/details/:id', component: ItemDetailsComponent, data: {isLogged: true}},

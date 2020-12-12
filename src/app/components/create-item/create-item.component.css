@@ -135,3 +135,13 @@ button {
   font-size: 25px;
   margin-bottom: 20px;
 }
+
+.error-p {
+  color: red;
+  text-align: left;
+}
+
+.err-btn {
+  background: #9b9b9b;
+  cursor: not-allowed;
+}

@@ -1,0 +1,19 @@
+#error, #success {
+  box-sizing: border-box;
+  padding: 5px;
+  font-size: 30px;
+  display: none;
+  position: absolute;
+  top: 10%;
+  right: 1%;
+  color: wheat;
+  border-radius: 10px;
+}
+
+#error {
+  background: #FF3939;
+}
+
+#success {
+  background: #03A679;
+}

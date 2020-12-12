@@ -13,7 +13,8 @@ import {AuthService} from '../../services/auth/auth.service';
 })
 export class ItemDetailsComponent implements OnInit {
   item: any;
-  currentUser: any;
+  // @ts-ignore
+  currentUser = this.authService.currentUser$.source.value;
   watching: number;
 
   constructor(
@@ -32,7 +33,7 @@ export class ItemDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     // @ts-ignore
-    this.currentUser = this.authService.currentUser$.source.value;
+    // this.currentUser = this.authService.currentUser$.source.value;
     this.watching = Math.floor((Math.random() * 25) + 1);
   }
 
@@ -41,6 +42,7 @@ export class ItemDetailsComponent implements OnInit {
     this.itemService.removeItem(id).subscribe({
       next: () => {
         this.router.navigate(['/']);
+        this.authService.onSuccess('Successfully removed an item!');
       },
       error: (err) => {
         console.error(err);
@@ -53,6 +55,7 @@ export class ItemDetailsComponent implements OnInit {
     this.cartService.createCartItem(id).subscribe({
       next: () => {
         this.router.navigate(['/']);
+        this.authService.onSuccess('Successfully added an item to your cart!');
       },
       error: (err) => {
         console.error(err);
@@ -65,6 +68,7 @@ export class ItemDetailsComponent implements OnInit {
     this.itemService.star(id).subscribe({
       next: () => {
         this.router.navigate([`items`]);
+        this.authService.onSuccess('Successfully stared an item!');
       },
       error: (err) => {
         console.error(err);

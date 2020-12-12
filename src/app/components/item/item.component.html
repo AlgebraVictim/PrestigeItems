@@ -1,14 +1,6 @@
-<!--<section>-->
-<!--  <article>-->
-<!--    <p class="green">Creator: {{item.creator.username}}</p>-->
-<!--    <p>Quantity: {{item.quantity}}</p>-->
-<!--    <p>Coins: {{item.value}}</p>-->
-<!--    <a [routerLink]="['/item/details', item._id]">Go to details</a>-->
-<!--  </article>-->
-<!--</section>-->
-
 <div class="card">
-  <div [ngClass]="{'blockMe':item.quantity===0}"  class="card__face card__face--front">
+  <p>{{isLogged?.source?._value?._id}}</p>
+  <div [ngClass]="{'blockMe':((item.quantity===0 || item.quantity<0) && isLogged?._id !== item?.creator?._id) || isLogged===null}" class="card__face card__face--front">
     <img *ngIf="item.category==='games'" [routerLink]="['/item/details', item._id]"
          src="https://mrreiha.keybase.pub/codepen/hover-fx/4.jpg"/>
     <img *ngIf="item.category==='items'" [routerLink]="['/item/details', item._id]"
@@ -16,15 +8,17 @@
     <p class="text-block">{{item.name}}</p>
     <p class="text-block-sold" *ngIf="!(item.quantity)">SOLD OUT</p>
   </div>
-  <div [ngClass]="{'blockMe':item.quantity===0}"  class="card__face card__face--back">
-<!--    Back of the card should be the game-->
+  <div [ngClass]="{'blockMe':((item.quantity===0 || item.quantity<0) && isLogged?._id !== item?.creator?._id) || isLogged===null}"
+       class="card__face card__face--back">
+    <!--    Back of the card should be the game-->
     <img *ngIf="item.category==='games'" [routerLink]="['/item/details', item._id]"
          src="https://mrreiha.keybase.pub/codepen/hover-fx/1.jpg"/>
     <img *ngIf="item.category==='items'" [routerLink]="['/item/details', item._id]"
          src="https://mrreiha.keybase.pub/codepen/hover-fx/3.jpg"/>
-    <div class="text-block">
+    <div class="text-block behind">
       <p>Coins: {{item.value}}</p>
       <p>Quantity: {{item.quantity}}</p>
+      <p *ngIf="isLogged===null" class="login-err">Login to purchase</p>
     </div>
   </div>
 </div>

@@ -1,1 +1,22 @@
-<p *ngIf="itemsList">We have: {{itemsList.length}} items available!</p>
+<section class="wrapper">
+  <section class="main-content">
+    <header *ngIf="(isLogged | async)">
+      <span class="balance">Balance: {{isLogged?.source?._value?.money}} <i class="fas fa-coins"></i></span>
+      <span *ngIf="cartItems.length!==0">Cart items: {{cartItems.length}} - check your cart</span>
+    </header>
+    <header>
+      Hello {{isLogged?.source?._value?.username || 'Anonymous' }}, we are PrestigeItems. Glad to see you there.
+    </header>
+    <article class="intro">
+      <p>We offer a wide variety of items and games, currently we have: {{itemsList.length}} items.</p>
+      <p>As we know, everybody wants lower price, you are on the right place.</p>
+      <p class="green">Some of the most phenomenal titles in history we have: </p>
+    </article>
+    <article class="games">
+      <article class="game" *ngFor="let item of itemsList">
+        <span>{{item.name}}</span>
+      </article>
+    </article>
+  </section>
+</section>
+<app-items [show]="false"></app-items>

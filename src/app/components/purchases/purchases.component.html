@@ -1,4 +1,6 @@
-<table *ngIf="purchasesList.length>0">
+<button class="toggle" (click)="toggleShowClick()">{{show?'Hide':'Show'}}</button>
+
+<table *ngIf="purchasesList.length>0 && show">
   <tr>
     <th>Date</th>
     <th>Creator</th>
@@ -14,4 +16,4 @@
     <td>{{(purchase.activationKey).toUpperCase()}}</td>
   </tr>
 </table>
-<app-not-found *ngIf="purchasesList.length===0"></app-not-found>
+<app-not-found *ngIf="purchasesList.length===0 || !show"></app-not-found>

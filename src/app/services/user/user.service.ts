@@ -13,4 +13,16 @@ export class UserService {
   loadAllUsers(): Observable<any> {
     return this.http.get(environment.baseUrl + `users`);
   }
+
+  addFunds(coins: number): Observable<any> {
+    return this.http.put(environment.baseUrl + `users/addFunds`, {coins}, {withCredentials: true});
+  }
+
+  ban(id: string): Observable<any> {
+    return this.http.put(environment.baseUrl + `users/ban/${id}`, {}, {withCredentials: true});
+  }
+
+  unban(id: string): Observable<any> {
+    return this.http.put(environment.baseUrl + `users/unban/${id}`, {}, {withCredentials: true});
+  }
 }

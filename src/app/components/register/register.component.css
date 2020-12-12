@@ -91,5 +91,5 @@ button {
 }
 
 .err-btn {
-  border: 2px solid red;
+  cursor: not-allowed;
 }

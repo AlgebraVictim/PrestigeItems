@@ -1,12 +1,14 @@
 <section *ngIf="usersList && currentUser.role==='admin'">
-  <article *ngFor="let user of usersList">
+  <article [ngClass]="!user.active?'red-b':'green-b'" *ngFor="let user of usersList">
     <p class="green">Username: {{user.username}}</p>
     <p>Email: {{user.email}}</p>
     <p>Registration date: {{user.date}}</p>
-    <p>Rating: {{user.rating}}</p>
     <p>Purchases count: {{user.purchases.length}}</p>
     <p>Products count: {{user.products.length}}</p>
-    <p>Password: {{user.password}}</p>
+    <div>
+      <button *ngIf="user.active && user.role!=='admin'" (click)="handleBanClick(user._id)">Ban me!</button>
+      <button *ngIf="!user.active && user.role!=='admin'" (click)="handleUnbanClick(user._id)">Unban me!</button>
+    </div>
   </article>
 </section>
 <app-not-found *ngIf="currentUser.role!=='admin'"></app-not-found>

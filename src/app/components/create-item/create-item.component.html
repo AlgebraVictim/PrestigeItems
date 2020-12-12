@@ -5,14 +5,20 @@
       <div class="field">
         <label for="name"></label>
         <input type="text" name="name" id="name" formControlName="name" placeholder="Product title"/>
+        <p class="error-p" *ngIf="form.get('name')?.touched && form.get('name')?.errors?.minlength">Name must be at
+          least 4 characters!</p>
       </div>
       <div class="field">
         <label for="quantity"></label>
         <input type="number" name="quantity" id="quantity" formControlName="quantity" placeholder="Quantity"/>
+        <p class="error-p" *ngIf="form.get('quantity')?.touched && form.get('quantity')?.errors?.min">Quantity must be a
+          positive number!</p>
       </div>
       <div class="field">
         <label for="value"></label>
         <input type="number" name="value" id="value" formControlName="value" placeholder="Coins"/>
+        <p class="error-p" *ngIf="form.get('value')?.touched && form.get('value')?.errors?.min">Value must be a
+          positive number!</p>
       </div>
       <div class="field">
         <p class="category-save">Select category!</p>
@@ -23,7 +29,7 @@
         </select>
       </div>
       <div class="submit">
-        <button>Submit</button>
+        <button [class.err-btn]="form.invalid" [disabled]="form.invalid">Submit</button>
       </div>
     </form>
   </div>

@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, throwError} from 'rxjs';
 import {IUser} from '../../interfaces';
 import {HttpClient} from '@angular/common/http';
-import {catchError, map, tap} from 'rxjs/operators';
+import {catchError, map, retry, tap} from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
+import {element} from 'protractor';
 
 @Injectable()
 export class AuthService {
@@ -17,12 +18,16 @@ export class AuthService {
 
   register(data: any): Observable<any> {
     return this.http.post(environment.baseUrl + `users/register`, data, {withCredentials: true}).pipe(
-      tap((user: any) => this.currentUser.next(user))
+      retry(1),
+      catchError(this.handleError),
+      tap((user: any) => this.currentUser.next(null))
     );
   }
 
   login(data: any): Observable<any> {
     return this.http.post(environment.baseUrl + `users/login`, data, {withCredentials: true}).pipe(
+      retry(1),
+      catchError(this.handleError),
       tap((user: any) => this.currentUser.next(user))
     );
   }
@@ -46,5 +51,34 @@ export class AuthService {
         return [null];
       })
     );
+  }
+
+  handleError(error: any): any {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = `Error: ${error.error.msg}`;
+    } else {
+      errorMessage = `Error code: ${error.status}\nMessage: ${error.error.msg}`;
+    }
+    // tslint:disable-next-line:no-shadowed-variable
+    const element = document.getElementById('error');
+    // @ts-ignore
+    element.innerText = error.error.msg;
+    // @ts-ignore
+    element.style.display = 'inline';
+    // @ts-ignore
+    setTimeout(() => element.style.display = 'none', 4000);
+    console.log(errorMessage);
+    return throwError(errorMessage);
+  }
+
+  onSuccess(msg: any): void {
+    const elementS = document.getElementById('success');
+    // @ts-ignore
+    elementS.innerText = msg;
+    // @ts-ignore
+    elementS.style.display = 'inline';
+    // @ts-ignore
+    setTimeout(() => elementS.style.display = 'none', 4000);
   }
 }

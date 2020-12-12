@@ -5,20 +5,12 @@
       <!--      Email fields-->
       <div class="field">
         <label for="email"></label>
-        <input [class.error-class]="form.get('email')?.touched && !!form.get('email')?.errors" type="text" name="email"
-               id="email" formControlName="email" placeholder="Example@domain.com"/>
-        <p class="error-p" *ngIf="form.get('email')?.touched && form.get('email')?.errors?.emailValidator">Email must be
-          at least 6
-          characters!</p>
+        <input type="text" name="email" id="email" formControlName="email" placeholder="Example@domain.com"/>
       </div>
       <!--      Password fields-->
       <div class="field">
         <label for="password"></label>
-        <input [class.error-class]="form.get('password')?.touched && !!form.get('password')?.errors" type="password"
-               name="password" id="password" formControlName="password" placeholder="••••••••"/>
-        <p class="error-p" *ngIf="form.get('password')?.touched && form.get('password')?.errors?.minlength">Password
-          must be at least 6
-          characters!</p>
+        <input type="password" name="password" id="password" formControlName="password" placeholder="••••••••"/>
       </div>
       <!--      Link to register-->
       <div class="register">
@@ -31,7 +23,7 @@
       </div>
       <!--      Login button (submit)-->
       <div class="submit">
-        <button [class.err-btn]="form.invalid" [disabled]="form.invalid">Sign In</button>
+        <button>Sign In</button>
       </div>
     </form>
   </div>

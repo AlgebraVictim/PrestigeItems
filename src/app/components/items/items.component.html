@@ -1,5 +1,9 @@
+<div class="buttons">
+  <button class="toggle" *ngIf="show" (click)="toggleOnlyItems()">Items only</button>
+  <button class="toggle" *ngIf="show" (click)="toggleOnlyGames()">Games only</button>
+</div>
 <div class="scene" *ngIf="itemsList">
-  <app-item *ngFor="let item of itemsList" [item]="item"></app-item>
+  <app-item *ngFor="let item of itemsList" [item]="item" [isLogged]="isLogged?.source?._value"></app-item>
   <p *ngIf="itemsList.length===0">No items!</p>
 </div>
 

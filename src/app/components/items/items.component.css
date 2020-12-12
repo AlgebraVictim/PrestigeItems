@@ -7,3 +7,21 @@
   margin: 50px auto 0 auto;
   margin-bottom: 110px;
 }
+
+.toggle {
+  width: 130px;
+  height: 50px;
+  background: #5D5C61;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 22px;
+  margin: 5px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
