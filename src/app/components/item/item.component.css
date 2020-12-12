@@ -42,6 +42,17 @@
   width: 100%;
   text-align: center;
 }
+
+.behind {
+  top: 5%;
+  font-size: 35px;
+}
+
+.login-err {
+  color: red;
+  margin-top: 50px;
+}
+
 .text-block-sold {
   position: absolute;
   left: 50%;

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ItemService} from '../../services/item/item.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-edit-item',
@@ -19,6 +20,7 @@ export class EditItemComponent implements OnInit {
     private fb: FormBuilder,
     private itemService: ItemService,
     private activatedRoute: ActivatedRoute,
+    private authService: AuthService,
     private router: Router
   ) {
     this.selectedCategory = 'games';
@@ -44,6 +46,7 @@ export class EditItemComponent implements OnInit {
     this.itemService.editItem(data, this.id).subscribe({
       next: () => {
         this.router.navigate(['/']);
+        this.authService.onSuccess('Successfully edited an item!');
       },
       error: (err) => {
         console.error(err);

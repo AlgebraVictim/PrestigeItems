@@ -10,14 +10,20 @@ import {Router} from '@angular/router';
 export class PurchasesComponent implements OnInit {
 
   purchasesList: any[];
+  show: boolean;
 
   constructor(private purchasesService: PurchasesService, private router: Router) {
     this.purchasesList = [];
+    this.show = false;
   }
 
   ngOnInit(): void {
     this.purchasesService.loadPurchases().subscribe((items) => {
       this.purchasesList = items;
     });
+  }
+
+  toggleShowClick(): void {
+    this.show = !this.show;
   }
 }

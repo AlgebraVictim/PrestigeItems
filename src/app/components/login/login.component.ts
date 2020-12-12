@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, emailValidator]],
+
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(data).subscribe({
       next: () => {
         this.router.navigate(['/']);
+        this.authService.onSuccess('Logged in successfully!');
       },
       error: (err) => {
         console.error(err);

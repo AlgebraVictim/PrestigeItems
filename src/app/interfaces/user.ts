@@ -1,4 +1,7 @@
 export interface IUser {
+  _id: string;
+  role: string;
+  active: boolean;
   username: string;
   email: string;
   password: string;

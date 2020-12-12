@@ -1,7 +1,10 @@
 <nav>
   <div class="wrapper">
-<!--    Left floated ul-->
+    <!--    Left floated ul-->
     <ul class="left">
+      <li id="logo">
+        <a routerLink="/">PrestigeItems</a>
+      </li>
       <li *ngIf="(isLogged$ | async)">
         <a routerLink="/users">Users</a>
       </li>
@@ -18,7 +21,7 @@
         <a routerLink="/purchases">Purchases</a>
       </li>
     </ul>
-<!--    Right floated ul-->
+    <!--    Right floated ul-->
     <ul class="right">
       <li *ngIf="!(isLogged$ | async)">
         <a routerLink="/register">Register</a>
@@ -26,7 +29,7 @@
       <li *ngIf="!(isLogged$ | async)">
         <a routerLink="/login">Login</a>
       </li>
-      <li *ngIf="(isLogged$ | async)">Hello, how you doin'</li>
+      <li *ngIf="(isLogged$ | async)">Hello, how you doin', {{isLogged$?.source?._value?.username}}</li>
       <li *ngIf="(isLogged$ | async)">
         <a (click)="logoutHandler()">Logout</a>
       </li>

@@ -5,4 +5,5 @@ export interface IItem {
   quantity: number;
   stars: number;
   available: boolean;
+  name: string;
 }

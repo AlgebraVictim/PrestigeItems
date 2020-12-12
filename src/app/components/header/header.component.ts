@@ -9,19 +9,29 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  isLogged$ = this.authService.isLogged$;
+  isLogged$: any;
 
   constructor(
     private authService: AuthService,
     private router: Router
   ) {
+    this.isLogged$ = authService.currentUser$;
   }
 
   ngOnInit(): void {
+    console.log(this.isLogged$);
   }
 
   logoutHandler(): void {
-    this.authService.logout().subscribe(() => this.router.navigate(['/register']));
+    this.authService.logout().subscribe({
+      next: () => {
+        this.router.navigate(['/login']);
+        this.authService.onSuccess('Logged out successfully!');
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
 }
